@@ -70,9 +70,13 @@ repositories {
     jcenter()
 }
 
+def FACEBOOK_SDK_VERSION = safeExtGet('facebookSdkVersion', '[7.0,8.0[')
+
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation "com.facebook.android:facebook-applinks:${FACEBOOK_SDK_VERSION}"
+    implementation "com.facebook.android:facebook-core:${FACEBOOK_SDK_VERSION}"
 }
 
 def configureReactNativePom(def pom) {
