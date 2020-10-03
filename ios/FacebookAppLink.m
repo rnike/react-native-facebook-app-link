@@ -1,13 +1,28 @@
 #import "FacebookAppLink.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation FacebookAppLink
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+RCT_REMAP_METHOD(fetchUrl,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
 {
-    // TODO: Implement some actually useful functionality
-    callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [FBSDKSettings setAutoInitEnabled:YES];
+    [FBSDKApplicationDelegate initializeSDK:nil];
+    [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
+      if (error) {
+        reject(@"error", @"Fail to fetch deferred deeplink", error);
+      }
+      if (url) {
+        NSString* appLink = [NSString stringWithFormat:@"%@", url];
+        resolve(appLink);
+      }
+      resolve(nil);
+    }];
+  });
 }
 
 @end
