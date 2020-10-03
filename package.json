@@ -2,29 +2,30 @@
   "name": "react-native-facebook-app-link",
   "title": "React Native Facebook App Link",
   "version": "1.0.0",
-  "description": "TODO",
-  "main": "index.js",
+  "description": "Easily fetch facebook deferred app link url and handle it without native implementation.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "README.md",
     "android",
-    "index.js",
     "ios",
-    "react-native-facebook-app-link.podspec"
+    "react-native-facebook-app-link.podspec",
+    "dist/**/*"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-facebook-app-link.git",
-    "baseUrl": "https://github.com/github_account/react-native-facebook-app-link"
+    "url": "git+https://github.com/yum650350/react-native-facebook-app-link.git",
+    "baseUrl": "https://github.com/yum650350/react-native-facebook-app-link"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Mike",
+    "email": "yum650350@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
