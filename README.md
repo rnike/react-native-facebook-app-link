@@ -25,10 +25,25 @@ pod update FBSDKShareKit FBSDKLoginKit FBSDKCoreKit
 ```
 
 ## Usage
-```javascript
-import DeferredDeepLink from 'react-native-facebook-app-link';
 
-const url = await DeferredDeepLink.fetchUrl();
+```javascript
+import FacebookAppLink from 'react-native-facebook-app-link';
+
+const url = await FacebookAppLink.fetchUrl();
+
+if(url){
+  // do whatever with the url.
+}
+```
+
+If you follow the [Facebook GDPR Compliance](https://developers.facebook.com/docs/app-events/gdpr-compliance/), initialize the SDK before fetchUrl:
+
+```javascript
+import FacebookAppLink from 'react-native-facebook-app-link';
+
+// get user consent
+FacebookAppLink.initializeSDK();
+const url = await FacebookAppLink.fetchUrl();
 
 if(url){
   // do whatever with the url.
@@ -36,6 +51,9 @@ if(url){
 ```
 
 ## Reference
+
 [Maftalion's answer](https://github.com/facebook/react-native-fbsdk/issues/648#issuecomment-694480302) in react-native-fbsdk issue [#648](https://github.com/facebook/react-native-fbsdk/issues/648)
 
 [FACEBOOK for developers - Add Deep Links to Your App Ad - Step2](https://developers.facebook.com/docs/app-ads/deep-linking)
+
+[FB SDK Best Practices for GDPR Compliance](https://developers.facebook.com/docs/app-events/gdpr-compliance/)
