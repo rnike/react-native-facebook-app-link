@@ -10,8 +10,6 @@ RCT_REMAP_METHOD(fetchUrl,
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
   dispatch_async(dispatch_get_main_queue(), ^{
-    [FBSDKSettings setAutoInitEnabled:YES];
-    [FBSDKApplicationDelegate initializeSDK:nil];
     [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
       if (error) {
         reject(@"error", @"Fail to fetch deferred deeplink", error);
@@ -23,6 +21,12 @@ RCT_REMAP_METHOD(fetchUrl,
       resolve(nil);
     }];
   });
+}
+
+RCT_EXPORT_METHOD(initializeSDK)
+{
+  [FBSDKSettings setAutoInitEnabled:YES];
+  [FBSDKApplicationDelegate initializeSDK:nil];
 }
 
 @end
