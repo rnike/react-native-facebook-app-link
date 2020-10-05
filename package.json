@@ -1,7 +1,7 @@
 {
   "name": "react-native-facebook-app-link",
   "title": "React Native Facebook App Link",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily fetch facebook deferred app link url and handle it without native implementation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
