@@ -50,6 +50,14 @@ if(url){
 }
 ```
 
+## API
+
+
+| name | description |
+| - | - |
+| fetchUrl | Fetch deferred app link from Facebook |
+| initializeSDK | Initialize the Facebook SDK (For [FB GDPR Compliance Best Practices](https://developers.facebook.com/docs/app-events/gdpr-compliance/)) |
+
 ## Reference
 
 [Maftalion's answer](https://github.com/facebook/react-native-fbsdk/issues/648#issuecomment-694480302) in react-native-fbsdk issue [#648](https://github.com/facebook/react-native-fbsdk/issues/648)
