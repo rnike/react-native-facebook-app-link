@@ -5,4 +5,5 @@
  */
 export default {
   fetchUrl: () => Promise.resolve(undefined),
+  initializeSDK: () => {},
 };

@@ -17,6 +17,11 @@ const fetchUrl: () => Promise<string | undefined> = () => {
   return _fetchUrl;
 };
 
+const initializeSDK = () => {
+  NativeModules.FacebookAppLink.initializeSDK();
+};
+
 export default {
   fetchUrl,
+  initializeSDK,
 };

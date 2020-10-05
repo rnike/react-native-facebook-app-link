@@ -26,8 +26,6 @@ public class FacebookAppLinkModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void fetchUrl(final Promise promise) {
         try {
-            FacebookSdk.setAutoInitEnabled(true);
-            FacebookSdk.fullyInitialize();
             AppLinkData.fetchDeferredAppLinkData(this.reactContext.getApplicationContext(),
                 new AppLinkData.CompletionHandler() {
                 @Override
@@ -42,5 +40,11 @@ public class FacebookAppLinkModule extends ReactContextBaseJavaModule {
         } catch (Exception e) {
             promise.reject("error", e.getMessage(), e);
         }
+    }
+
+    @ReactMethod
+    public void initializeSDK() {
+        FacebookSdk.setAutoInitEnabled(true);
+        FacebookSdk.fullyInitialize();
     }
 }
