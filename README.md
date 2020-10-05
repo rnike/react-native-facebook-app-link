@@ -36,7 +36,7 @@ if(url){
 }
 ```
 
-If you follow the [Facebook GDPR Compliance](https://developers.facebook.com/docs/app-events/gdpr-compliance/), initialize the SDK before fetchUrl:
+If you follow the [Facebook GDPR Compliance Best Practices](https://developers.facebook.com/docs/app-events/gdpr-compliance/) and set the ```AutoInitEnabled``` flag to ```false```, initialize the SDK before ```fetchUrl```:
 
 ```javascript
 import FacebookAppLink from 'react-native-facebook-app-link';
