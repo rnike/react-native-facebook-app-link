@@ -13,12 +13,14 @@ RCT_REMAP_METHOD(fetchUrl,
     [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
       if (error) {
         reject(@"error", @"Fail to fetch deferred deeplink", error);
+        return;
       }
       if (url) {
         NSString* appLink = [NSString stringWithFormat:@"%@", url];
         resolve(appLink);
+      }else{
+        resolve(nil);
       }
-      resolve(nil);
     }];
   });
 }
